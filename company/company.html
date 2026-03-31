@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tadreeb - Company Dashboard</title>
+  <link rel="stylesheet" href="company-style.css" />
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <span class="brand-name">TADREEB<span>COM</span></span>
+    </div>
+
+    <nav>
+      <span class="nav-label">Company Dashboard</span>
+    </nav>
+
+    <div class="auth">
+      <button class="signup">Sign out</button>
+    </div>
+  </header>
+
+  <!-- MAIN WRAPPER -->
+  <main class="page-wrapper">
+    <section class="company-hero">
+      <h1>Company Task Setup</h1>
+      <p>
+        Configure training tasks for your IT interns. You can adjust all values at any time,
+        and manage the list of job titles you offer.
+      </p>
+    </section>
+
+    <!-- COMPANY TASK VARIABLES -->
+    <section class="company-task">
+      <div class="company-task-header">
+        <h2>Task Details</h2>
+        <p>Set the core variables for this training task.</p>
+      </div>
+
+      <div class="company-task-grid">
+        <form class="task-form" id="taskForm">
+          <label for="trainingType">IT Training Type</label>
+          <select id="trainingType">
+            <option value="Software Development" selected>Software Development</option>
+            <option value="Frontend Development">Frontend Development</option>
+            <option value="Backend Development">Backend Development</option>
+            <option value="Full‑Stack Development">Full‑Stack Development</option>
+            <option value="Mobile Development">Mobile Development</option>
+            <option value="DevOps & Cloud">DevOps &amp; Cloud</option>
+            <option value="Data Science & Analytics">Data Science &amp; Analytics</option>
+            <option value="Cybersecurity">Cybersecurity</option>
+            <option value="UI/UX Design">UI / UX Design</option>
+            <option value="IT Support & Helpdesk">IT Support &amp; Helpdesk</option>
+            <option value="Network & Systems">Network &amp; Systems</option>
+            <option value="QA & Testing">QA &amp; Testing</option>
+            <option value="Product Management">Product Management</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <label for="taskNotes">Notes From the Company</label>
+          <textarea
+            id="taskNotes"
+            rows="4"
+            placeholder="Enter task notes and requirements..."
+          >Please complete the onboarding checklist, set up your development environment, and submit your first progress report.</textarea>
+
+          <div class="two-col">
+            <div>
+              <label for="taskAmount">Amount (JOD)</label>
+              <input id="taskAmount" type="number" min="0" value="250" />
+            </div>
+
+            <div>
+              <label for="taskLocation">Location</label>
+              <input id="taskLocation" type="text" value="Amman - Abdali" />
+            </div>
+          </div>
+
+          <div class="two-col">
+            <div>
+              <label for="taskTime">Time</label>
+              <input id="taskTime" type="datetime-local" value="2026-04-10T09:30" />
+            </div>
+
+            <div>
+              <label for="taskDuration">Duration</label>
+              <input id="taskDuration" type="text" value="3 months" />
+            </div>
+          </div>
+
+          <button type="submit" class="primary full-width">Save Task Variables</button>
+        </form>
+
+        <div class="task-preview">
+          <h3>Task Preview</h3>
+          <p class="preview-note" id="previewNotes">
+            Please complete the onboarding checklist, set up your development environment, and submit your first progress report.
+          </p>
+          <div class="preview-row">
+            <span>🎓 Training Type</span>
+            <strong id="previewTraining">Software Development</strong>
+          </div>
+          <div class="preview-row">
+            <span>💰 Amount</span>
+            <strong id="previewAmount">250 JOD</strong>
+          </div>
+          <div class="preview-row">
+            <span>📍 Location</span>
+            <strong id="previewLocation">Amman - Abdali</strong>
+          </div>
+          <div class="preview-row">
+            <span>⏰ Time</span>
+            <strong id="previewTime">2026-04-10 09:30</strong>
+          </div>
+          <div class="preview-row">
+            <span>📆 Duration</span>
+            <strong id="previewDuration">3 months</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOB TITLES MANAGEMENT -->
+    <section class="job-section">
+      <div class="job-header">
+        <h2>IT Job Titles</h2>
+        <p>
+          Manage the list of IT roles you offer. You can add, edit, or remove any title.
+        </p>
+      </div>
+
+      <div class="job-layout">
+        <div class="job-form-card">
+          <label for="jobTitleInput">Add or Edit Job Title</label>
+          <input
+            id="jobTitleInput"
+            type="text"
+            placeholder="e.g. Junior Backend Developer"
+          />
+          <div class="job-actions">
+            <button id="addJobBtn" class="primary">Add Job Title</button>
+            <button id="saveEditBtn" class="secondary" disabled>Save Changes</button>
+            <button id="cancelEditBtn" class="ghost" disabled>Cancel</button>
+          </div>
+        </div>
+
+        <div class="job-list-card">
+          <div class="job-list-header">
+            <h3>Current Job Titles</h3>
+            <span id="jobCount">0 titles</span>
+          </div>
+          <ul id="jobList" class="job-list">
+            <!-- Filled by JavaScript -->
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h3>InternJo</h3>
+        <p>
+          Empowering companies to host meaningful IT training programs for students and fresh graduates.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>Company Tools</h4>
+        <a href="#">Manage Tasks</a>
+        <a href="#">View Candidates</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 TADREEBCOM. Company Dashboard.
+    </div>
+  </footer>
+
+  <script src="company-script.js"></script>
+</body>
+</html>
+
